@@ -1,0 +1,39 @@
+= Pdfcraft
+
+A little Rails plugin for rendering PDFs from templates.
+
+== Install
+
+Add Pdfcraft to your Gemfile
+    gem "pdfcraft"
+
+And bundle
+    % bundle
+
+
+== Usage
+
+=== Controllers
+
+From your controllers:
+
+    def index
+      respond_to do |format|
+        format.pdf { render pdf: 'contents' }
+      end
+    end
+
+=== Views
+
+Create view templates just like you would for any other view format. Use file extension .pdfcraft for the pdfcraft template handler.
+
+Pdfcraft initializes an ivar named @pdf the holds the PDF document you are building.
+
+    @pdf.text "This will be rendered in a PDF"
+
+Since Pdfcraft is built on Rails' templating and rendering, this means you that partials, layouts, and helpers are all at yout disposal.
+
+=== A Note About render_to_string
+
+The contract for render_to_string requires that this method returns a string. In the case of PDF representations, string content doesn't really make sense, since it's really a binary format. When render_to_string is called for PDF format, Pdfcraft simply returns the binary data for the generated PDF.
+

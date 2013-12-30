@@ -1,0 +1,4 @@
+@pdf.text "This was rendered in the base template"
+
+render partial: 'the_partial'
+
