@@ -1,4 +1,4 @@
-= Pdfcraft
+= Pdfcraft {<img src="https://travis-ci.org/kofno/pdfcraft.png?branch=master" />}[https://travis-ci.org/kofno/pdfcraft]
 
 A little Rails plugin for rendering PDFs from templates.
 
