@@ -25,15 +25,41 @@ From your controllers:
 
 === Views
 
-Create view templates just like you would for any other view format. Use file extension .pdfcraft for the pdfcraft template handler.
+Create view templates just like you would for any other view format. Use file
+extension .pdfcraft for the pdfcraft template handler.
 
-Pdfcraft initializes an ivar named @pdf the holds the PDF document you are building.
+Pdfcraft initializes an ivar named @pdf the holds the PDF document you are
+building.
 
     @pdf.text "This will be rendered in a PDF"
 
-Since Pdfcraft is built on Rails' templating and rendering, this means you that partials, layouts, and helpers are all at yout disposal.
+Since Pdfcraft is built on Rails' templating and rendering, this means that
+partials, layouts, and helpers are all at yout disposal.
+
+    @pdf.text "This is a template"
+
+    render partial: 'aggregates'
+
+Pdfcraft uses Prawn as the rendering engine. For the time being, the @pdf
+object delgates directly to a Prawn::Document object, so refer to Prawn's API
+documentation for how to construct a PDF.
+
+One method on the Pdfcraft::Document that is not part of the Prawn::Document is
+the #page_config method. This method takes all of the options that
+Prawn::Document#new does, and can only be called once before any other method
+on Pdfcraft::Document. This is how you can configure the PDF layout options.
+
+    @pdf.page_config page_layout: :landscape
+
+One you've started constructing the document, calls to #page_config will be
+ignored. There is also a version of #page_config named #page_config! (notice
+the bang). Using #page_config! will raise an exception if PDF document
+construction has already begun.
 
 === A Note About render_to_string
 
-The contract for render_to_string requires that this method returns a string. In the case of PDF representations, string content doesn't really make sense, since it's really a binary format. When render_to_string is called for PDF format, Pdfcraft simply returns the binary data for the generated PDF.
+The contract for render_to_string requires that this method returns a string.
+In the case of PDF representations, string content doesn't really make sense,
+since it's really a binary format. When render_to_string is called for PDF
+format, Pdfcraft simply returns the binary data for the generated PDF.
 
