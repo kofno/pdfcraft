@@ -20,5 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "prawn", "~> 0.13"
 
   s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'guard'
+  s.add_development_dependency 'guard-minitest'
 
 end

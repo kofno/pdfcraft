@@ -18,4 +18,8 @@ class HomeController < ApplicationController
   def helpers
     render pdf: "contents"
   end
+
+  def pdf_layout
+    render pdf: "contents"
+  end
 end
