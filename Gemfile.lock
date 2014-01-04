@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pdfcraft (0.0.1)
+    pdfcraft (0.0.2.pre)
       prawn (~> 0.13)
       rails (~> 4.0.0)
 
