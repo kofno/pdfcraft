@@ -3,5 +3,6 @@ rvm:
   - "1.9.3"
   - "2.0.0"
   - "2.1.0"
+before_install: gem update bundler
 # uncomment this line if your project needs to run something other than `rake`:
-script: gem update bundler; bundle exec rake
+# script: gem update bundler; bundle exec rake
