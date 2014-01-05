@@ -47,6 +47,13 @@ class PdfRenderingTest < ActionDispatch::IntegrationTest
     assert_equal [0,0,792,612].map(&:to_f), pdf.page(1).attributes[:MediaBox]
   end
 
+  test "pdf can use rails layouts for header and footer" do
+    get pdf_layout_path(format: :pdf)
+
+    assert_match "Header", pdf.page(1).text
+    assert_match "Footer", pdf.page(1).text
+  end
+
   private
 
   def pdf

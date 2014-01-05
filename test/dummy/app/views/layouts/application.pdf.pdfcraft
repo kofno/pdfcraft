@@ -1,0 +1,25 @@
+# @pdf.repeat :all do
+  # Header
+  @pdf.canvas do
+    @pdf.bounding_box [@pdf.bounds.left, @pdf.bounds.top], width: @pdf.bounds.width, height: 50 do
+      @pdf.move_down 10
+      @pdf.font_size(20) { @pdf.text "This is the Header", align: :center }
+      @pdf.horizontal_rule
+    end
+  end
+
+  # Footer
+  @pdf.canvas do
+    @pdf.bounding_box [@pdf.bounds.left, @pdf.bounds.bottom + 50], height: 50, width: @pdf.bounds.width do
+      @pdf.horizontal_rule
+      @pdf.font_size(8) { @pdf.text "This is the Footer", align: :center }
+    end
+  end
+# end
+
+# body
+@pdf.canvas do
+  @pdf.bounding_box [@pdf.bounds.left, @pdf.bounds.top - 50], width: @pdf.bounds.width, height: @pdf.bounds.height - 50 do
+    yield
+  end
+end
