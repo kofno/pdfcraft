@@ -65,7 +65,7 @@ want.
 Create an initializer and set the Pdfcraft#varibale_name value:
 
     # config/initializers/pdfcraft.rb
-    Pdfcraft.varibale_name = 'gummi_bears'
+    Pdfcraft.variable_name = 'gummi_bears'
 
 Then you can refernce your pdf document from your views using this variable
 name instead:
