@@ -6,9 +6,11 @@ module Pdfcraft
   class PdfHandler
 
     def call(template)
-      "@pdf ||= ::Pdfcraft::Document.new;" +
-        template.source + ";" +
-        "@pdf.render;"
+      "def #{Pdfcraft.variable_name};" +
+        "@#{Pdfcraft.variable_name} ||= ::Pdfcraft::Document.new;" +
+      "end;" +
+      template.source + ";" +
+      "#{Pdfcraft.variable_name}.render;"
     end
   end
 

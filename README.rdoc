@@ -28,19 +28,19 @@ From your controllers:
 Create view templates just like you would for any other view format. Use file
 extension .pdfcraft for the pdfcraft template handler.
 
-Pdfcraft initializes an ivar named @pdf the holds the PDF document you are
-building.
+By default, Pdfcraft gives you access to the pdf document through a variable
+named 'pdf'.
 
-    @pdf.text "This will be rendered in a PDF"
+    pdf.text "This will be rendered in a PDF"
 
 Since Pdfcraft is built on Rails' templating and rendering, this means that
 partials, layouts, and helpers are all at yout disposal.
 
-    @pdf.text "This is a template"
+    pdf.text "This is a template"
 
     render partial: 'aggregates'
 
-Pdfcraft uses Prawn as the rendering engine. For the time being, the @pdf
+Pdfcraft uses Prawn as the rendering engine. For the time being, the pdf
 object delgates directly to a Prawn::Document object, so refer to Prawn's API
 documentation for how to construct a PDF.
 
@@ -49,12 +49,31 @@ the #page_config method. This method takes all of the options that
 Prawn::Document#new does, and can only be called once before any other method
 on Pdfcraft::Document. This is how you can configure the PDF layout options.
 
-    @pdf.page_config page_layout: :landscape
+    pdf.page_config page_layout: :landscape
 
 One you've started constructing the document, calls to #page_config will be
 ignored. There is also a version of #page_config named #page_config! (notice
 the bang). Using #page_config! will raise an exception if PDF document
 construction has already begun.
+
+=== Configuration
+
+If, for some reason, you don't want to use the 'pdf' variable name (perhaps you
+have a name collision), you can configure the variable to be named anything you
+want.
+
+Create an initializer and set the Pdfcraft#varibale_name value:
+
+    # config/initializers/pdfcraft.rb
+    Pdfcraft.varibale_name = 'gummi_bears'
+
+Then you can refernce your pdf document from your views using this variable
+name instead:
+
+    # app/views/a_controller/a_view.pdf.pdfcraft
+    gummi_bears.move_down 20
+    gummi_bears.text "Get in ma belly!"
+
 
 === A Note About render_to_string
 

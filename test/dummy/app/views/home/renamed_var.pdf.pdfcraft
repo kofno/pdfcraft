@@ -1,0 +1,3 @@
+__pdf__.move_down 20
+
+__pdf__.text "Rendered by a renamed var"

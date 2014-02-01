@@ -4,4 +4,5 @@ Dummy::Application.routes.draw do
   get "/partials", to: "home#partials", as: :partials
   get "/helpers", to: "home#helpers", as: :helpers
   get "/pdf_layout", to: "home#pdf_layout", as: :pdf_layout
+  get "/renamed_var", to: "home#renamed_var", as: :renamed_var
 end

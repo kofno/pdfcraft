@@ -1,3 +1,3 @@
-@pdf.page_config page_layout: :landscape
+pdf.page_config page_layout: :landscape
 
-@pdf.text "This page should be formatted as landscape"
+pdf.text "This page should be formatted as landscape"

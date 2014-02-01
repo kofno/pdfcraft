@@ -22,4 +22,8 @@ class HomeController < ApplicationController
   def pdf_layout
     render pdf: "contents"
   end
+
+  def renamed_var
+    render pdf: "contents", layout: false
+  end
 end

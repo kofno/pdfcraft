@@ -54,9 +54,4 @@ class PdfRenderingTest < ActionDispatch::IntegrationTest
     assert_match "Footer", pdf.page(1).text
   end
 
-  private
-
-  def pdf
-    @pdf ||= PDF::Reader.new(StringIO.new(response.body))
-  end
 end
