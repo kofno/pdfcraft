@@ -33,7 +33,7 @@ named 'pdf'.
     pdf.text "This will be rendered in a PDF"
 
 Since Pdfcraft is built on Rails' templating and rendering, this means that
-partials, layouts, and helpers are all at yout disposal.
+partials, layouts, and helpers are all at your disposal.
 
     pdf.text "This is a template"
 
