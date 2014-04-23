@@ -1,3 +1,3 @@
 module Pdfcraft
-  VERSION = "2.0.0.pre"
+  VERSION = "1.0.1"
 end

@@ -1,3 +1,6 @@
+== 1.0.1
+* Changed rails dependency to include Rail 4.*
+
 == 1.0.0
 * Replaced pdf ivar (@pdf) in views with configurable variable.
 
