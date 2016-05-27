@@ -8,7 +8,7 @@ module Pdfcraft
     def call(template)
       "def #{Pdfcraft.variable_name};" +
         "@#{Pdfcraft.variable_name} ||= ::Pdfcraft::Document.new;" +
-      "end;" +
+      "end unless respond_to?(:#{Pdfcraft.variable_name});" +
       template.source + ";" +
       "#{Pdfcraft.variable_name}.render;"
     end

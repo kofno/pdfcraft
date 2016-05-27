@@ -6,7 +6,7 @@ module Pdfcraft
   class Document < Delegator
 
     def initialize
-      # override the super instance with a new signature
+      @pdf_engine = nil
     end
 
     def page_config! options
