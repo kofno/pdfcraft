@@ -66,7 +66,7 @@ Create an initializer and set the Pdfcraft#varibale_name value:
     # config/initializers/pdfcraft.rb
     Pdfcraft.variable_name = 'gummi_bears'
 
-Then you can refernce your pdf document from your views using this variable
+Then you can reference your pdf document from your views using this variable
 name instead:
 
     # app/views/a_controller/a_view.pdf.pdfcraft
