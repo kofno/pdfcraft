@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pdfcraft (2.0.0)
+    pdfcraft (3.0.0)
       prawn (~> 2.1)
       rails (>= 5.0.0.rc1, < 5.1)
 
@@ -133,6 +133,7 @@ PLATFORMS
 DEPENDENCIES
   pdf-reader
   pdfcraft!
+  rake
 
 BUNDLED WITH
-   1.12.4
+   1.12.5
